@@ -43,6 +43,9 @@ class GLWindow:
 
         glfw.set_key_callback(self.window, self.keyboard)
 
+        if visible:
+            glfw.swap_interval(1)
+
     def run(self):
         self.tick += 1
         if self.rotating:
@@ -208,5 +211,6 @@ class GLWindow:
     def set_window_visible(self, flag):
         if flag:
             glfw.show_window(self.window)
+            glfw.swap_interval(1)
         else:
             glfw.hide_window(self.window)
